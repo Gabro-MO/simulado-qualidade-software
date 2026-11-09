@@ -1,23 +1,37 @@
 # Simulado Interativo — Qualidade de Software
 
-Aplicação estática para revisão de **PSM**, **GQM** e **Introdução à Medição e Análise**, preparada para publicação no GitHub Pages.
+Aplicação estática de revisão dos conteúdos **PSM**, **GQM** e **Introdução à Medição e Análise**, preparada para publicação no GitHub Pages.
 
-## Recursos
+## Banco de questões
 
-- 18 questões de múltipla escolha;
-- ordem das questões e alternativas embaralhada a cada tentativa;
-- correção após confirmar a resposta;
-- justificativa da questão e da alternativa escolhida;
+O simulado agora contém **83 questões de múltipla escolha**: 18 questões iniciais e 65 questões novas elaboradas após a análise dos materiais de estudo incluídos em `P2.zip`.
+
+As 65 novas questões ampliam a cobertura com foco em conceitos que não estavam suficientemente representados no banco inicial:
+
+| Bloco de novas questões | Quantidade | Conteúdos |
+|---|---:|---|
+| GQM | 21 | Objetivos, níveis conceitual/operacional/quantitativo, fases, equipe, abstraction sheets, hipóteses, perguntas, métricas, planos, coleta e interpretação. |
+| PSM e CID | 26 | Modelo de informação, medidas e indicadores, critérios, tipos de análise, categorias de informação, seleção de medidas, Story Points, fluxo, testes, defeitos, MTTR/MTTD, releases, velocidade, valor e dívida técnica. |
+| Introdução à Medição e Análise | 18 | Entidades e atributos, relações empíricas, teoria representacional, escalas nominal, ordinal, intervalar e de razão, transformações admissíveis e significado de medidas. |
+
+As novas questões seguem o padrão de **quatro alternativas, uma resposta correta e explicação**. O aplicativo embaralha questões e alternativas, corrige a resposta, apresenta feedback, acompanha o resultado por assunto e permite revisar erros. Há questões conceituais e questões de aplicação/cálculo, por exemplo, cálculo de razão de defeitos escapados, frequência de releases e velocidade média.
+
+## Recursos do aplicativo
+
+- 83 questões de múltipla escolha;
+- quatro alternativas por questão;
+- correção e justificativa após cada resposta;
+- ordem de questões e alternativas embaralhada;
 - acompanhamento de acertos, erros e progresso;
 - resultado por assunto;
 - revisão das questões erradas;
 - armazenamento local do melhor aproveitamento no navegador;
 - layout responsivo para computador e celular;
-- sem dependências de backend ou instalação de pacotes.
+- sem backend ou dependências para instalação.
 
 ## Como executar localmente
 
-Abra `index.html` no navegador. Como o projeto usa apenas HTML, CSS e JavaScript no cliente, não é necessário instalar dependências.
+Abra `index.html` no navegador. Como o projeto utiliza HTML, CSS e JavaScript no cliente, não é necessário instalar dependências.
 
 ## Como publicar pelo GitHub Pages
 
@@ -26,23 +40,37 @@ Abra `index.html` no navegador. Como o projeto usa apenas HTML, CSS e JavaScript
 3. Escolha a branch `main` e a pasta `/(root)`, depois clique em **Save**.
 4. Aguarde a publicação e use o endereço exibido na seção GitHub Pages.
 
-O arquivo `index.html` está na raiz, pronto para ser usado como página inicial.
+O arquivo `index.html` está na raiz e carrega os arquivos JavaScript na ordem necessária: banco inicial, banco adicional e lógica do aplicativo.
 
-## Organização
+## Organização dos arquivos
 
 - `index.html`: estrutura da interface;
 - `style.css`: estilos e responsividade;
-- `questions.js`: banco de questões e justificativas;
-- `app.js`: lógica do simulado, correção e resultados.
+- `questions.js`: banco inicial de 18 questões;
+- `questions-extra.js`: 65 novas questões;
+- `app.js`: lógica do simulado, correção, pontuação e revisão;
+- `.nojekyll`: desabilita o processamento Jekyll;
+- `README.md`: esta documentação.
 
-## Escopo e fidelidade ao material
+## Materiais utilizados
 
-As questões foram selecionadas ou adaptadas a partir dos dois arquivos de estudo enviados. Os temas cobertos incluem medidas base, derivadas e indicadores; métricas de produto, processo e recursos; métricas de Putnam; esforço, tamanho, produtividade e custo; LoC; satisfação do cliente; defeitos; MTTR; Cycle Time; e perspectivas de equipe, produto e empresa.
+As novas questões foram elaboradas a partir do conjunto de PDFs de `P2.zip`, incluindo:
 
-**Limitação de GQM:** o material fornecido cita Goal Question Metric como abordagem para definição de objetivos mensuráveis, mas não apresenta detalhes suficientes sobre suas etapas ou aplicação. Por isso, o simulado cobra somente a identificação da abordagem e sinaliza essa limitação, em vez de inventar conteúdo adicional.
+- AULA 08 QSW1 — GQM;
+- AULA 09 QSW1 — PSM;
+- PSM CID Measurement Framework — Partes 1, 2 e 3;
+- McGarry — capítulos 1 e 2;
+- Fenton — *Why Measurement?* e *The Basics of Measurement* (capítulos sobre fundamentos, tipos de medição e escalas).
 
-Alguns campos de resposta preenchidos no segundo arquivo contradizem explicações consistentes do próprio conjunto. Para evitar propagar esses erros, o banco utiliza a resposta acompanhada de explicação coerente com o conteúdo dos materiais, por exemplo, esforço como uma das métricas fundamentais de Putnam.
+A seleção prioriza o conteúdo dos materiais fornecidos. Questões sobre escalas de medição preservam a distinção entre classificação, ordenação, intervalos iguais e zero significativo. Questões de PSM/CID distinguem medidas base, medidas derivadas, indicadores e critérios de decisão. Questões de GQM abrangem as fases e seus artefatos, sem reduzir a abordagem apenas à expansão da sigla.
 
-## Licença e uso
+## Observações
 
-Material educacional para estudo. Revise as questões e o gabarito com as referências oficiais da disciplina antes de utilizar em uma avaliação formal.
+- O banco inicial foi mantido e complementado, não substituído.
+- As novas questões utilizam quatro alternativas e uma única resposta correta.
+- As explicações e referências de origem ficam associadas a cada questão no arquivo JavaScript.
+- A seleção de medidas e indicadores deve sempre considerar as necessidades de informação e o contexto do projeto; o simulado não trata uma métrica isolada como medida universal de qualidade.
+
+## Uso
+
+Material educacional para estudo. Consulte os materiais oficiais da disciplina para aprofundar os conceitos e confirme os critérios específicos adotados pela turma antes de uma avaliação formal.
