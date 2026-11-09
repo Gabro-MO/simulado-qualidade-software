@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Simulado interativo de Qualidade de Software: PSM, GQM e Introdução à Medição e Análise.">
+  <meta name="theme-color" content="#111827">
+  <title>Simulado | Qualidade de Software</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="questions.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#inicio" aria-label="Início do simulado">
+        <span class="brand-mark">QS</span>
+        <span>Qualidade de Software</span>
+      </a>
+      <span class="topbar-note">Simulado de revisão</span>
+    </header>
+    <main id="inicio">
+      <section id="start-screen" class="hero panel">
+        <div class="eyebrow"><span class="pulse"></span> PREPARAÇÃO PARA A AVALIAÇÃO</div>
+        <h1>Teste seus conhecimentos em <span>medição de software.</span></h1>
+        <p class="hero-copy">Pratique os conceitos de PSM, GQM e Introdução à Medição e Análise com questões de múltipla escolha, feedback explicado e revisão dos erros.</p>
+        <div class="topic-grid" aria-label="Conteúdos do simulado">
+          <article class="topic-card"><span class="topic-number">01</span><h2>PSM</h2><p>Medidas, métricas, indicadores e acompanhamento de projetos.</p></article>
+          <article class="topic-card"><span class="topic-number">02</span><h2>GQM</h2><p>Abordagem Goal Question Metric para objetivos mensuráveis.</p></article>
+          <article class="topic-card"><span class="topic-number">03</span><h2>Medição e Análise</h2><p>Classificação de métricas, relações empíricas e interpretação de dados.</p></article>
+        </div>
+        <div class="start-meta">
+          <div><strong id="question-count">18</strong><span>questões</span></div>
+          <div><strong>Sem tempo</strong><span>para responder</span></div>
+          <div><strong>Feedback</strong><span>após cada resposta</span></div>
+        </div>
+        <button id="start-btn" class="button button-primary button-large">Começar simulado <span aria-hidden="true">→</span></button>
+        <p class="fine-print">As questões foram selecionadas e adaptadas dos materiais fornecidos, mantendo o foco nos três conteúdos solicitados.</p>
+      </section>
+      <section id="quiz-screen" class="quiz-layout hidden" aria-live="polite">
+        <aside class="quiz-sidebar panel">
+          <div class="sidebar-heading">SEU PROGRESSO</div>
+          <div class="progress-number"><strong id="progress-current">01</strong><span>/ <span id="progress-total">18</span></span></div>
+          <div class="progress-track"><div id="progress-fill" class="progress-fill"></div></div>
+          <div class="sidebar-stats">
+            <div><span class="stat-dot dot-green"></span><span>Acertos</span><strong id="correct-count">0</strong></div>
+            <div><span class="stat-dot dot-red"></span><span>Erros</span><strong id="wrong-count">0</strong></div>
+          </div>
+          <div class="sidebar-divider"></div>
+          <p class="sidebar-tip-title">DICA DE ESTUDO</p>
+          <p class="sidebar-tip">Leia o enunciado com atenção e tente justificar mentalmente sua escolha antes de confirmar.</p>
+          <button id="quit-btn" class="button button-ghost">Encerrar simulado</button>
+        </aside>
+        <section class="question-panel panel">
+          <div class="question-topline"><span id="category-tag" class="category-tag">PSM</span><span id="question-index" class="question-index">QUESTÃO 01</span></div>
+          <h2 id="question-text" class="question-text">Enunciado da questão</h2>
+          <p id="question-instruction" class="question-instruction">Selecione uma alternativa.</p>
+          <div id="options-list" class="options-list"></div>
+          <div id="feedback-box" class="feedback-box hidden" role="status"></div>
+          <div class="question-actions">
+            <span id="answer-status" class="answer-status">Sua resposta ainda não foi enviada.</span>
+            <button id="check-btn" class="button button-primary" disabled>Confirmar resposta</button>
+            <button id="next-btn" class="button button-primary hidden">Próxima questão <span aria-hidden="true">→</span></button>
+          </div>
+        </section>
+      </section>
+      <section id="result-screen" class="result-layout panel hidden" aria-live="polite">
+        <div class="result-icon" id="result-icon">✓</div>
+        <p class="eyebrow result-eyebrow">SIMULADO CONCLUÍDO</p>
+        <h1 id="result-title">Boa revisão!</h1>
+        <p id="result-subtitle" class="result-subtitle">Veja seu desempenho abaixo.</p>
+        <div class="score-card">
+          <div class="score-main"><strong id="final-score">0%</strong><span>de aproveitamento</span></div>
+          <div class="score-details">
+            <div><strong id="final-correct">0</strong><span>acertos</span></div>
+            <div><strong id="final-wrong">0</strong><span>erros</span></div>
+            <div><strong id="final-total">18</strong><span>questões</span></div>
+          </div>
+        </div>
+        <div class="result-review"><h2>Revisão por assunto</h2><div id="topic-results" class="topic-results"></div></div>
+        <div class="result-actions">
+          <button id="review-btn" class="button button-secondary">Revisar questões erradas</button>
+          <button id="restart-btn" class="button button-primary">Refazer simulado <span aria-hidden="true">↻</span></button>
+        </div>
+        <p class="fine-print">Seu melhor aproveitamento neste navegador: <strong id="best-score">0%</strong>.</p>
+      </section>
+      <section id="review-screen" class="review-layout panel hidden">
+        <div class="question-topline"><span class="category-tag">REVISÃO</span><span id="review-count" class="question-index"></span></div>
+        <h1>Revise seus erros</h1>
+        <p class="hero-copy">Confira a alternativa correta e a justificativa de cada questão que você errou.</p>
+        <div id="review-list" class="review-list"></div>
+        <div class="result-actions">
+          <button id="back-results-btn" class="button button-secondary">Voltar ao resultado</button>
+          <button id="review-retry-btn" class="button button-primary">Tentar novamente</button>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <span>Simulado de Qualidade de Software</span>
+      <span>Material de estudo • PSM · GQM · Medição e Análise</span>
+    </footer>
+  </div>
+</body>
+</html>
